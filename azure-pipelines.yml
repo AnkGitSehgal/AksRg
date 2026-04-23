@@ -18,11 +18,12 @@ stages:
   - job: init
     displayName: init ho rha hai
     steps:
-    - task: TerraformTask@5
-      inputs:
-        provider: 'azurerm'
-        command: 'init'
-        backendServiceArm: 'App_SC'
-        backendAzureRmStorageAccountName: 'tfstgankit'
-        backendAzureRmContainerName: 'pipetest'
-        backendAzureRmKey: '- task: TerraformTask@5'
+      - task: TerraformTask@5
+        inputs:
+          provider: 'azurerm'
+          command: 'init'
+          workingDirectory: '$(System.DefaultWorkingDirectory)'
+          backendServiceArm: 'App_SC'
+          backendAzureRmStorageAccountName: 'tfstgankit'
+          backendAzureRmContainerName: 'pipetest'
+          backendAzureRmKey: 'my.tfstate'
