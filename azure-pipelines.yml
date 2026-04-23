@@ -1,0 +1,14 @@
+trigger: none
+
+pool:
+  name: App_Pool
+
+stages:
+- stage: tf_install
+  jobs:
+  - job: Tf
+    displayName: terraform install ho rha hai
+    steps:
+    - task: TerraformInstaller@1
+      inputs:
+        terraformVersion: 'latest'
